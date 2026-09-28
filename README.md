@@ -27,16 +27,16 @@ exeption t2v / i2v 5sec video ~130sec
 ## special thanks
 comfyui devs
 
-nicolab28 clip projection minimax H3
+nicolab28 clip projection minimax H3\
 https://github.com/nicolab28/ComfyUI-ClipProj
 
-windminder chatterbox
+windminder chatterbox\
 https://github.com/wildminder/ComfyUI-Chatterbox
 
-jhj0517 faster whisper
+jhj0517 faster whisper\
 https://github.com/jhj0517/ComfyUI-faster-whisper
 
-simplelogger org code moustafa-nasr (tweaked by me)
+simplelogger org code moustafa-nasr (tweaked by me)\
 https://github.com/moustafa-nasr/ComfyUI-SimpleLogger
-tweak:
+tweak:\
 https://github.com/moustafa-nasr/ComfyUI-SimpleLogger/issues/4
