@@ -1,0 +1,495 @@
+comfy ui
+* Preferd v.0.37.0 (5GB installed)
+  this is the version I have used and tested
+  for this howto / install manual.
+
+get:
+https://github.com/Comfy-Org/ComfyUI/releases
+for windows click on 'assets' and download:
+ComfyUI_windows_portable_nvidia.7z
+* maybe download as ComfyUI_windows_portable_nvidia_v0370.7z
+  if you want to keep it clear which version you are using ...
+
+Open zip after downloading and copy content to desired location.
+
+for apple silicon (M1 and up):
+https://docs.comfy.org/installation/desktop/macos
+or:
+https://www.earngenix.com/tutorials/install-comfyui-mac
+Ehhr good luck have not tested but should work ...
+
+for linux distro's:
+https://docs.comfy.org/installation/desktop/linux
+Not for the faint of heart again not tested by me but should work ...
+
+More info:
+https://docs.comfy.org/changelog
+Check the open tickets:
+https://github.com/Comfy-Org/ComfyUI/issues
+4.2k at time of writing so this is going to a rough ride ...
+
+Tips:
+For more on using comfyui and other tips see 'using comfyui'
+further down in this howto / manual.
+
+After installing you can add the following models step by step.
+But first it might be handy to copy the contents of the following
+bundeld zip files to their respective folders under comfyui:
+comfyui 101 workflows.zip
+comfyui 101 custom node minimax h3 clipprojection.zip
+comfyui 101 custom nodes batch and logging.zip
+comfyui 101 custom nodes whisper and chatterbox.zip
+comfyui 101 tools.zip
+comfyui 101 input data.zip
+
+This one is a bit large so download it from my github repo at:
+
+comfyui 101 python libs whisper and chatterbox.zip
+contains all python libs needed for whisper and chatterbox
+also make sure you have copied:
+comfyui 101 custom nodes whisper and chatterbox.zip
+
+Start with qwen3 vl chat and image description
+it's just one model and a simple workflow to get
+a hang of things.
+
+The total package comfyui and all mentioned models
+tallies up to ~85GB ....
+
+===================================================================================
+
+llm's
+
+* Prefered qwen3 vl 5GB
+fast does chat, code and video / image descriptions
+text encoder can also be used for Krea 2
+\comfyui
+  \models
+    \ text_encoders
+     qwen3vl_4b_fp8_scaled.safetensors
+
+text encoder:
+https://huggingface.co/Comfy-Org/Qwen3-VL/blob/main/text_encoders/qwen3vl_8b_fp8_scaled.safetensors
+
+Workflow:
+https://docs.comfy.org/tutorials/llm/qwen/qwen3
+* note workflow is bundeld in zip file attachment.
+  comfyui\user\default\workflows\chatqwen3vl4b.json
+
+Variations 8B:
+https://huggingface.co/Comfy-Org/Qwen3-VL/tree/main/text_encoders
+https://huggingface.co/Comfy-Org/Qwen3-VL/blob/main/text_encoders/qwen3vl_8b_w4a8.safetensors
+6GB variant more parameters 8 billion instead of 4 billion
+
+___________________________________________________________________________________
+
+* option B 9GB
+slow does chat, code, video / image descriptions and can do audio transcribe
+no other models can use gemma4 ....
+gemma e4b
+\comfyui
+  \models
+    \ text_encoders
+     gemma4_e4b_it_fp8_scaled.safetensors
+
+text encoder:
+https://huggingface.co/Comfy-Org/gemma-4/blob/main/text_encoders/gemma4_e4b_it_fp8_scaled.safetensors
+
+Workflow:
+https://docs.comfy.org/tutorials/llm/gemma4/gemma4
+* not bundled in zip file
+
+Variations:
+https://huggingface.co/Comfy-Org/gemma-4/tree/main/text_encoders
+
+===================================================================================
+
+text to image aka t2i (for creating images from prompt)
+* note not really usable for image editing alas ...
+
+* Prefered krea 2 turbo
+needs more then 8GB vram but has best prompt adherence and accuracy takes more time to render
+\comfyui
+  \ models
+    \ checkpoints
+      krea2_turbo_fp8_scaled.safetensors
+    \ text_encoders
+      qwen3vl_4b_fp8_scaled.safetensors
+    \ vae
+      qwen_image_vae.safetensors
+
+checkpoint 13GB:
+https://huggingface.co/Comfy-Org/Krea-2/blob/main/diffusion_models/krea2_turbo_fp8_scaled.safetensors
+
+text encoder 5GB:
+https://huggingface.co/Comfy-Org/Qwen3-VL/blob/main/text_encoders/qwen3vl_8b_fp8_scaled.safetensors
+* note same as llm saves 5GB ...
+
+vae 250MB:
+https://huggingface.co/Comfy-Org/Krea-2/blob/main/vae/qwen_image_vae.safetensors
+
+workflow:
+https://docs.comfy.org/tutorials/image/krea/krea-2
+* note workflow is bundeld in zip file attachment.
+  comfyui\user\default\workflows\krea2turbofp8scaled.json
+
+variations:
+https://huggingface.co/Comfy-Org/Krea-2/tree/main/diffusion_models
+
+Krea 2 style examples:
+https://matplinta.github.io/t2i-krea-2-style-library/
+
+___________________________________________________________________________________
+
+image to image aka i2i (for image editing using the prompt)
+* note can also do t2i but not as good as krea 2
+
+* prefered flux-2-klein-9b
+needs more then 8GB vram but good prompt adherence so so accuracy takes more time to render
+note: only model when wired up correctly that can do decent image editing
+\comfyui
+  \ models
+    \ checkpoints
+      flux-2-klein-9b-fp8.safetensors
+    \ text_encoders
+      qwen_3_8b_fp8mixed.safetensors
+    \ vae
+      flux2-vae.safetensors
+
+checkpoint 9GB:
+https://huggingface.co/black-forest-labs/FLUX.2-klein-9b-fp8/tree/main
+
+text encoder 9GB:
+https://huggingface.co/Comfy-Org/vae-text-encorder-for-flux-klein-9b/blob/main/split_files/text_encoders/qwen_3_8b_fp8mixed.safetensors
+
+vae 300MB:
+https://huggingface.co/Comfy-Org/flux2-dev/blob/main/split_files/vae/flux2-vae.safetensors
+
+workflow:
+https://docs.comfy.org/tutorials/flux/flux-2-klein
+* note workflow is bundeld in zip file attachment.
+  comfyui\user\default\workflows\flux klein 2 9b fp8 i2i.json
+
+More info flux:
+https://enragedantelope.github.io/Styles-FluxDev/
+https://docs.bfl.ml/guides/prompting_unified_building
+
+===================================================================================
+
+text and or image to video aka ti2v (for creating video from prompt and or image)
+
+fastest and uses least vram very funky results though
+wan2.2_ti2v_5B_fp16
+\comfyui
+  \models
+    \ diffusion_models
+     wan2.2_ti2v_5B_fp16.safetensors
+    \ text_encoders
+     umt5_xxl_fp8_e4m3fn_scaled.safetensors
+    \ vae
+     wan2.2_vae.safetensors
+
+checkpoint 10GB:
+https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/blob/main/split_files/diffusion_models/wan2.2_ti2v_5B_fp16.safetensors
+
+text encoder 7GB:
+https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged/blob/main/split_files/text_encoders/umt5_xxl_fp8_e4m3fn_scaled.safetensors
+
+vae 1.5GB:
+https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/blob/main/split_files/vae/wan2.2_vae.safetensors
+
+workflow for ti2v 5B:
+https://docs.comfy.org/tutorials/video/wan/wan2_2
+* note workflow is bundeld in zip file attachment.
+  comfyui\user\default\workflows\wan22_5b_ti2v_h264.json
+
+More info on prompting for video:
+https://apatero.com/blog/wan-22-hidden-features-tips-guide-2025
+
+___________________________________________________________________________________
+
+* option B
+fast and best motion but difficult to implement needs
+comfy ui v0.34.0 or up
+using clip projection allows minimax h3 to run faster on ~8GB vram.
+
+minimax h3
+\comfyui
+  \custom_nodes
+   comfyui-clipproj-main
+
+quick install:
+use bundeld comfyui 101 custom node minimax h3 clipprojection.zip
+copy contents in to \comfyui\custom_nodes folder
+
+or manual get:
+https://github.com/nicolab28/ComfyUI-ClipProj
+click on green button 'code' and select / click on 'download zip'
+
+Open zip and copy contents to folder described above.
+
+\comfyui
+  \models
+    \clip_projections (part of custom node comfyui-clipproj-main)
+     mmh3-4b-ClipProj-v3.1.safetensors
+    \diffusion_models  (tricky is nsfw model but the smallest there is @2026)
+     10Eros_Max_h3_TURBO-hybrid_beta5_w4a8_14gb_optimized.safetensors
+    \text_encoders
+     qwen3vl_4b_fp8_scaled.safetensors
+    \vae
+     minimax_h3_audio_vae_fp32.safetensors
+     minimax_h3_video_vae_int8_convrot.safetensors
+
+clip projection 23MB:
+https://huggingface.co/NicoLab28/ClipProj-MiniMax-H3/blob/main/mmh3-4b-ClipProj-v3.1.safetensors
+
+diffusion model 14GB:
+https://huggingface.co/TenStrip/10Eros-Max/blob/main/10Eros_Max_h3_hybrid_beta5_w4a8_14gb_optimized.safetensors
+
+text encoder 5GB:
+https://huggingface.co/Comfy-Org/Qwen3-VL/blob/main/text_encoders/qwen3vl_8b_fp8_scaled.safetensors
+* note same as llm and krea 2 saves 5GB + 5GB = 10GB ...
+
+vae(s) ~3GB:
+https://huggingface.co/Comfy-Org/MiniMax-H3/blob/main/vae/minimax_h3_audio_vae_fp32.safetensors
+https://huggingface.co/Comfy-Org/MiniMax-H3/blob/main/vae/minimax_h3_video_vae_int8_convrot.safetensors
+
+workflow:
+https://docs.comfy.org/tutorials/video/minimax/minimax-h3-native
+* note workflow is bundeld in zip file attachment.
+  use this workflow it devaites from the official comfy ui one!
+  comfyui\user\default\workflows\minimax_h3_clipproj.json
+
+Options:
+https://huggingface.co/NicoLab28/ClipProj-MiniMax-H3/tree/main
+
+- non nfsw diffusion models
+https://civarchive.com/models/2857809?modelVersionId=3227890
+https://huggingface.co/Kutches/minmax/blob/main/minimax_h3_fl2va_pruned-w4a8_convrot_pruned.safetensors
+
+More info prompting for minimax H3:
+https://www.photogptai.com/guides/how-to-prompt-minimax-h3-video-model
+* note prompting for minimax H3 is a bit
+  of a dark art please read up on it ...
+
+Tips:
+Use work flow minimax_h3_promptgen.json (in \comfyui\user\default\workflows)
+for a more easy way of generating the minimax h3 prompt format.
+
+minimax H3 can generate audio as well but it
+would be wise to start with disabling that and
+keeping
+overall_soundscape:
+N/A
+non_diegetic_music:
+N/A
+in the prompt to save RAM and reduce rendertime of clip.
+
+===================================================================================
+
+upscale images
+
+\comfyui
+  \models
+   \upscale_models
+    2xNomosUni_esrgan_multijpg.pth
+    003_realsr_bsrgan_dfo_s64w8_swinir-m_x2_gan.pth
+    4x-ultrasharpv2.safetensors
+    realesrgan_x4plus.pth
+    realesrgan_x2plus.pth
+    4x_foolhardy_remacri_extrasmoother.pth
+    4x_foolhardy_remacri.pth
+
+get upscale models ~500MB:
+https://openmodeldb.info/
+or
+https://huggingface.co/gbrx/GonzaLomo/tree/main/upscale_models
+
+workflow:
+https://docs.comfy.org/tutorials/basic/upscale
+* note workflow is bundeld in zip file attachment.
+  use this workflow it devaites from the official comfy ui one
+  allows batch conversion (multiple image files)
+  and contains a description of which model work best
+  with certain image types (drawing, photo, etc)
+  comfyui\user\default\workflows\upscale_per_image.json
+
+===================================================================================
+
+audio
+
+These are the most difficult to implement
+both need alot of python libs that are not
+bundeld with comfy ui plus they both need
+specific custom nodes and data sets!
+
+quick install:
+use bundeld comfyui 101 python libs whisper and chatterbox.zip
+copy contents in to:
+<comfyui root folder>\python_embeded\Lib\site-packages
+
+example comfyui structure root folder:
+comfyv370\ComfyUI
+comfyv370\update
+comfyv370\python_embeded
+comfyv370\advanced
+
+or manually:
+without using pip you will need to get most stuff from here:
+https://pypi.org/
+
+
+___________________________________________________________________________________
+
+text to speech aka t2s chatterbox
+
+\comfyui
+  \custom_nodes
+   comfyui-chatterbox-main
+
+quick install:
+use bundeld comfyui 101 custom nodes whisper and chatterbox.zip
+copy contents in to \comfyui folder
+
+or manual get:
+https://github.com/wildminder/ComfyUI-Chatterbox
+click on green button 'code' and select / click on 'download zip'
+copy contents in to \comfyui\custom_nodes folder
+
+* needed for voice creation
+copy from comfyui 101 input data.zip audio waves:
+\comfyui
+ \input
+  \voices
+    vctk_p254_021_trimmed.wav
+    vtck_p228_021_trimmed.wav
+    vtck_p236_023_trimmed.wav
+
+\comfyui
+  \models
+    \tts
+     \chatterbox
+      \resembleai_default_voice\
+        conds.pt
+        s3gen.safetensors
+        t3_cfg.safetensors
+        tokenizer.json
+        ve.safetensors
+
+model select set 3GB:
+https://huggingface.co/ResembleAI/chatterbox/tree/main
+
+workflow:
+* note workflow is bundeld in zip file attachment.
+  comfyui\user\default\workflows\chatterbox.json
+
+___________________________________________________________________________________
+
+speech to text aka s2t whisper
+
+\comfyui
+  \custom_nodes
+   comfyui-faster-whisper-master
+
+quick install:
+use bundeld comfyui 101 custom nodes whisper and chatterbox.zip
+copy contents in to \comfyui folder
+
+or manual get:
+https://github.com/jhj0517/ComfyUI-faster-whisper
+click on green button 'code' and select / click on 'download zip'
+copy contents in to \comfyui\custom_nodes folder
+
+\comfyui
+ \models
+  \faster-whisper
+   \faster-distil-whisper-large-v3
+    config.json
+    model.bin
+    preprocessor_config.json
+    tokenizer.json
+    vocabulary.json
+
+model select set 1.5GB:
+https://huggingface.co/Systran/faster-distil-whisper-large-v3/tree/main
+
+* the custom node of whisper needs:
+cuBLAS.and.cuDNN_CUDA12_win_v2.7z
+get from:
+https://github.com/Purfview/whisper-standalone-win/releases/tag/libs
+open .7z and place these two dll's in:
+
+\python_embeded
+ \Lib
+  \site-packages
+   \torch
+    \lib
+    cublas64_12.dll
+    cublasLt64_12.dll
+
+~500MB
+
+workflow:
+* note workflow is bundeld in zip file attachment.
+  comfyui\user\default\workflows\faster whisper.json
+___________________________________________________________________________________
+
+
+List python libs for whisper and chatterbox
+for windows preferably get .whl (wheel)
+from : https://pypi.org/
+
+example search for: faster_whisper
+select faster_whisper in result
+click on 'release files'
+download .whl
+
+when downloaded open .whl and copy contents
+to <comfyui root folder>\python_embeded\Lib\site-packages
+do this for *all* packages listed below ... easy peasy right ;)
+
+Or again use bundeld comfyui 101 python libs whisper and chatterbox.zip
+
+total size installed ~355MB
+
+\python_embeded\Lib\site-packages\faster_whisper-1.2.1.dist-info\
+\python_embeded\Lib\site-packages\faster_whisper\
+\python_embeded\Lib\site-packages\ctranslate2-4.8.1.dist-info\
+\python_embeded\Lib\site-packages\ctranslate2\
+\python_embeded\Lib\site-packages\onnxruntime-1.28.0.dist-info\
+\python_embeded\Lib\site-packages\onnxruntime\
+\python_embeded\Lib\site-packages\diffusers-0.39.0.dist-info\
+\python_embeded\Lib\site-packages\diffusers\
+\python_embeded\Lib\site-packages\s3tokenizer-0.3.0.dist-info\
+\python_embeded\Lib\site-packages\s3tokenizer\
+\python_embeded\Lib\site-packages\conformer-0.3.2.dist-info\
+\python_embeded\Lib\site-packages\conformer\
+\python_embeded\Lib\site-packages\librosa-1.0.0.dist-info\
+\python_embeded\Lib\site-packages\librosa\
+\python_embeded\Lib\site-packages\numba-0.67.0.dist-info\
+\python_embeded\Lib\site-packages\numba\
+\python_embeded\Lib\site-packages\onnx\
+\python_embeded\Lib\site-packages\pooch-1.9.0.dist-info\
+\python_embeded\Lib\site-packages\pooch\
+\python_embeded\Lib\site-packages\soundfile-0.14.0.dist-info\
+\python_embeded\Lib\site-packages\__pycache__\
+\python_embeded\Lib\site-packages\_soundfile_data\
+\python_embeded\Lib\site-packages\decorator-5.3.1.dist-info\
+\python_embeded\Lib\site-packages\decorator\
+\python_embeded\Lib\site-packages\joblib-1.5.3.dist-info\
+\python_embeded\Lib\site-packages\joblib\
+\python_embeded\Lib\site-packages\lazy_loader-0.5.dist-info\
+\python_embeded\Lib\site-packages\lazy_loader\
+\python_embeded\Lib\site-packages\llvmlite-0.49.0.dist-info\
+\python_embeded\Lib\site-packages\llvmlite\
+\python_embeded\Lib\site-packages\llvmlite.libs\
+\python_embeded\Lib\site-packages\ml_dtypes-0.6.0.dist-info\
+\python_embeded\Lib\site-packages\ml_dtypes\
+\python_embeded\Lib\site-packages\ml_dtypes.libs\
+\python_embeded\Lib\site-packages\msgpack-1.2.1.dist-info\
+\python_embeded\Lib\site-packages\msgpack\
+\python_embeded\Lib\site-packages\platformdirs-4.11.3.dist-info\
+\python_embeded\Lib\site-packages\platformdirs\
+\python_embeded\Lib\site-packages\google\
+\python_embeded\Lib\site-packages\soxr-1.1.0.dist-info\
+\python_embeded\Lib\site-packages\soxr\

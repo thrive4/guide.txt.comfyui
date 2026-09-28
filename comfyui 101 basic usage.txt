@@ -1,0 +1,27 @@
+Using windows or linux
+start comfyui in <install folder comfyui> with:
+run_nvidia_gpu.bat
+or (gives some head room for other apps using vram):
+run_nvidia_gpu_reservevram.bat
+
+batch mode:
+run_nvidia_gpu_batch.bat
+* needs webserver runing on http:\\127.0.0.1:80
+  works with upscale_per_image_batch.json
+
+All the generated output of comfy ui ends up in
+<install folder>\comfyui\output\
+
+input data for most workflows that need input can
+be found at input folder:
+<install folder>\comfyui\input\
+* chatterbox, flux 2 klein i2i image edit, etc
+
+If a load file node has a red box around it
+change the file the checkpoint, model or other files
+that the workflow needs:
+right click on <file> of the node a drop down
+can show up allowing to select the correct or
+other prefered model, text encoder, vae etc.
+* note comfyui paths and files are case sensetive
+  even on windows...
