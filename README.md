@@ -1,7 +1,7 @@
 ## comfyui install guide [![Github All Releases](https://img.shields.io/github/downloads/thrive4/guide.txt.comfyui/total.svg)]()
 basic guide for **manual** install of\
 comfyui and a select set of models\
-on windows and in part on othere os's
+on windows and in part on other os's
 
 ## usage
 read comfyui 101.txt and comfyui 101 basic usage.txt
