@@ -41,9 +41,10 @@ comfyui 101 custom nodes batch and logging.zip
 comfyui 101 custom nodes whisper and chatterbox.zip
 comfyui 101 tools.zip
 comfyui 101 input data.zip
+https://github.com/thrive4/guide.txt.comfyui/releases
 
 This one is a bit large so download it from my github repo at:
-
+https://github.com/thrive4/guide.txt.comfyui/releases
 comfyui 101 python libs whisper and chatterbox.zip
 contains all python libs needed for whisper and chatterbox
 also make sure you have copied:
@@ -60,7 +61,7 @@ tallies up to ~85GB ....
 
 llm's
 
-* Prefered qwen3 vl 5GB
+* Preferred qwen3 vl 5GB
 fast does chat, code and video / image descriptions
 text encoder can also be used for Krea 2
 \comfyui
@@ -73,7 +74,7 @@ https://huggingface.co/Comfy-Org/Qwen3-VL/blob/main/text_encoders/qwen3vl_8b_fp8
 
 Workflow:
 https://docs.comfy.org/tutorials/llm/qwen/qwen3
-* note workflow is bundeld in zip file attachment.
+* note workflow is bundled in zip file attachment.
   comfyui\user\default\workflows\chatqwen3vl4b.json
 
 Variations 8B:
@@ -130,7 +131,7 @@ https://huggingface.co/Comfy-Org/Krea-2/blob/main/vae/qwen_image_vae.safetensors
 
 workflow:
 https://docs.comfy.org/tutorials/image/krea/krea-2
-* note workflow is bundeld in zip file attachment.
+* note workflow is bundled in zip file attachment.
   comfyui\user\default\workflows\krea2turbofp8scaled.json
 
 variations:
@@ -167,7 +168,7 @@ https://huggingface.co/Comfy-Org/flux2-dev/blob/main/split_files/vae/flux2-vae.s
 
 workflow:
 https://docs.comfy.org/tutorials/flux/flux-2-klein
-* note workflow is bundeld in zip file attachment.
+* note workflow is bundled in zip file attachment.
   comfyui\user\default\workflows\flux klein 2 9b fp8 i2i.json
 
 More info flux:
@@ -200,7 +201,7 @@ https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged/blob/main/split_file
 
 workflow for ti2v 5B:
 https://docs.comfy.org/tutorials/video/wan/wan2_2
-* note workflow is bundeld in zip file attachment.
+* note workflow is bundled in zip file attachment.
   comfyui\user\default\workflows\wan22_5b_ti2v_h264.json
 
 More info on prompting for video:
@@ -256,8 +257,8 @@ https://huggingface.co/Comfy-Org/MiniMax-H3/blob/main/vae/minimax_h3_video_vae_i
 
 workflow:
 https://docs.comfy.org/tutorials/video/minimax/minimax-h3-native
-* note workflow is bundeld in zip file attachment.
-  use this workflow it devaites from the official comfy ui one!
+* note workflow is bundled in zip file attachment.
+  use this workflow it deviates from the official comfy ui one!
   comfyui\user\default\workflows\minimax_h3_clipproj.json
 
 Options:
@@ -307,8 +308,8 @@ https://huggingface.co/gbrx/GonzaLomo/tree/main/upscale_models
 
 workflow:
 https://docs.comfy.org/tutorials/basic/upscale
-* note workflow is bundeld in zip file attachment.
-  use this workflow it devaites from the official comfy ui one
+* note workflow is bundled in zip file attachment.
+  use this workflow it deviates from the official comfy ui one
   allows batch conversion (multiple image files)
   and contains a description of which model work best
   with certain image types (drawing, photo, etc)
@@ -319,12 +320,13 @@ https://docs.comfy.org/tutorials/basic/upscale
 audio
 
 These are the most difficult to implement
-both need alot of python libs that are not
-bundeld with comfy ui plus they both need
+both need a lot of python libs that are not
+bundled with comfy ui plus they both need
 specific custom nodes and data sets!
 
 quick install:
-use bundeld comfyui 101 python libs whisper and chatterbox.zip
+use bundled comfyui 101 python libs whisper and chatterbox.zip
+https://github.com/thrive4/guide.txt.comfyui/releases
 copy contents in to:
 <comfyui root folder>\python_embeded\Lib\site-packages
 
@@ -380,7 +382,7 @@ model select set 3GB:
 https://huggingface.co/ResembleAI/chatterbox/tree/main
 
 workflow:
-* note workflow is bundeld in zip file attachment.
+* note workflow is bundled in zip file attachment.
   comfyui\user\default\workflows\chatterbox.json
 
 ___________________________________________________________________________________
