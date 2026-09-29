@@ -6,7 +6,7 @@ run_nvidia_gpu_reservevram.bat
 
 batch mode:
 run_nvidia_gpu_batch.bat
-* needs webserver runing on http:\\127.0.0.1:80
+* needs webserver running on http:\\127.0.0.1:80
   works with upscale_per_image_batch.json
 
 All the generated output of comfy ui ends up in
@@ -22,6 +22,57 @@ change the file the checkpoint, model or other files
 that the workflow needs:
 right click on <file> of the node a drop down
 can show up allowing to select the correct or
-other prefered model, text encoder, vae etc.
-* note comfyui paths and files are case sensetive
+other preferred model, text encoder, vae etc.
+* note comfyui paths and files are case sensitive
   even on windows...
+
+*workflows*
+
+workflows are in essence configuration files
+for specific models.
+Most models have a number of settings which
+can set / configured with and in the workflow.
+
+Since these settings can take quite some expertise
+to set it might be wise to use the bundled zip
+when starting using comfyui and the mentioned models.
+
+This guide uses the following workflows:
+chatqwen3vl4b.json
+chatterbox.json
+faster whisper.json
+flux klein 2 9b fp8.json
+flux klein 2 9b fp8 i2i.json
+krea2turbofp8scaled.json
+minimax_h3_clipproj.json
+minimax_h3_promptgen.json
+upscale_per_image.json
+upscale_per_image_batch.json
+wan22_5B_ti2v_h264.json
+wan22_5B_ti2v_h264 1 fps.json
+
+They can be downloaded at:
+https://github.com/thrive4/guide.txt.comfyui/releases
+comfyui.101.workflows.zip
+then open zip and copy them to:
+comfyui\user\default\workflows\
+
+*models*
+
+This manual would become quite extensive to go
+in depth for every model but each model has very
+specific functionality and more important 'prompting'
+techniques.
+
+Keep this in mind specifically minimax H3 and flux 2 klein
+when used as image editor vary largely from regular prompting.
+
+Note this stuff is *very* powerful but a large part
+of that power comes with understanding the prompting
+for a specific model!
+
+Useful links:
+https://www.earngenix.com/workflows/flux2-klein-image-comfyui#example-image-editing
+https://minimax-h3.app/prompt-guide
+https://minimaxh3.org/minimax-h3-prompt-guide
+https://krea2.co/blog/krea-2-prompt-guide
