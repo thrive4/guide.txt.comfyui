@@ -4,7 +4,9 @@ comfyui and a select set of models\
 on windows and in part on other os's
 
 ## usage
-read comfyui 101.txt and comfyui 101 basic usage.txt
+read comfyui 101.txt and comfyui 101 basic usage.txt\
+get companion zip files under release
+helps a lot in setting up and using comfyui.
 
 ## install
 add comfyui 101 zips see releases
